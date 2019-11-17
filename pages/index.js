@@ -76,7 +76,8 @@ class Home extends Component {
     super(props);
     
     this.state = {
-      movies: []
+      movies: [],
+      errorMessage: ''
     }
   }
 
@@ -87,13 +88,17 @@ class Home extends Component {
   // }
 
   componentDidMount() {
-    getMovies().then(movies => {
-      this.setState({movies})
-    })
+    getMovies()
+      .then(movies => {
+        this.setState({movies})
+      })
+      .catch((error) => {
+        this.setState({errorMessage: error});
+      })
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, errorMessage } = this.state;
     return (
       <div>
         <Head>
@@ -120,6 +125,11 @@ class Home extends Component {
                 <Carousel />
   
                 <div className="row">
+                  { errorMessage && 
+                    <div className="alert alert-danger" role="alert">
+                      { errorMessage }
+                    </div> 
+                  }
                   <MovieList movies={movies} />
                 </div>
               </div>
