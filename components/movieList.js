@@ -15,11 +15,15 @@ class MovieList extends Component {
     }
 
     increment = () => {
-        alert('incrementing Number');   
+        this.setState({
+            count: this.state.count + 1
+        })
     }
 
     decrement = () => {
-        alert('decrementing Number');   
+        this.setState({
+            count: this.state.count - 1
+        })
     }
 
     render() {
