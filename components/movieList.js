@@ -20,7 +20,7 @@ class MovieList extends Component {
         })
     }
 
-    decrement = () => {
+    decrement() {
         this.setState({
             count: this.state.count - 1
         })
@@ -31,7 +31,7 @@ class MovieList extends Component {
             <>
                 <div>
                     <div onClick={this.increment} className="btn btn-primary">Increment Number</div>
-                    <div onClick={this.decrement} className="btn btn-primary">Decrement Number</div>
+                    <div onClick={() => this.decrement()} className="btn btn-primary">Decrement Number</div>
                     <h1>{this.state.count}</h1>
                 </div>
                 <div className="col-lg-4 col-md-6 mb-4">
