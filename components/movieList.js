@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 
 class MovieList extends Component {
 
+  shorten = (text, maxLength) => {
+    if (text && text.length > maxLength) {
+      return text.substr(0, maxLength) + '...';  
+    }
+    return text;
+  }
+
   renderMovies() {
     const { movies } = this.props;
 
@@ -14,7 +21,7 @@ class MovieList extends Component {
               <h4 className="card-title">
                 <a href="#">{name}</a>
               </h4>
-              <p className="card-text">{description}</p>
+              <p className="card-text">{this.shorten(description,45)}</p>
             </div>
             <div className="card-footer">
               <small className="text-muted">{rating}</small>
