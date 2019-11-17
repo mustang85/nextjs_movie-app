@@ -1,17 +1,13 @@
 
 
-const SideMenu = ({ count, appName, clickHandler }) => {
+const SideMenu = ({ appName }) => {
   return (
     <div>
-      <button onClick={clickHandler}>Click me</button>
       <h1 className="my-4">{appName}</h1>
       <div className="list-group">
         <a href="#" className="list-group-item">Category 1</a>
         <a href="#" className="list-group-item">Category 2</a>
         <a href="#" className="list-group-item">Category 3</a>
-      </div>
-      <div>
-        <h1>{count}</h1>
       </div>
     </div>
   )
