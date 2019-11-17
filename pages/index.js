@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head';
-import { useState } from 'react';
 
 import Navbar from '../components/navbar';
 import SideMenu from '../components/sideMenu';
@@ -11,6 +10,11 @@ import Footer from '../components/footer';
 import { getMovies } from '../actions';
 
 const Home = () => {
+  const [movies, setMovies] = useState([]);
+
+  getMovies().then((movies) => {
+    setMovies(movies);
+  });
 
   return (
     <div>
@@ -38,7 +42,7 @@ const Home = () => {
               <Carousel />
 
               <div className="row">
-                <MovieList movies={getMovies()} />
+                <MovieList movies={movies} />
               </div>
             </div>
           </div>
