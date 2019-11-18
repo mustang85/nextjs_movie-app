@@ -12,8 +12,9 @@ import React, { Component } from 'react';
 //     )
 // };
 
-class About extends Componen {
+class About extends Component {
     render() {
+        const message = 'Hello world';
         return (
             <h1>Hello About Page - {message}</h1>
         )
