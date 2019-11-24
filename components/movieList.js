@@ -17,12 +17,12 @@ class MovieList extends Component {
       (
         <div key={id} className="col-lg-4 col-md-6 mb-4">
           <div className="card h-100">
-            <Link href={`/movies/${id}`}>
+            <Link href="/movies/[id]" as={`/movies/${id}`}>
               <a><img className="card-img-top" src={image} alt="" /></a>
             </Link>
             <div className="card-body">
               <h4 className="card-title">
-                <Link>
+                <Link href="/movies/[id]" as={`/movies/${id}`}>
                   <a>{name}</a>
                 </Link>
               </h4>
